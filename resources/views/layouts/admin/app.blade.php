@@ -12,6 +12,29 @@
 </head>
 <body>
     <main>
+
+        @include('layouts.admin.nav')
+
+        @if(session('success'))
+            <div class="mt-3 container alert alert-success">
+                {{ session('success') }}
+            </div>
+        @elseif(session('danger'))
+            <div class="mt-3 container alert alert-danger">
+                {{ session('danger') }}
+            </div>
+        @endif
+
+        @if($errors->any())
+            <div class="alert-danger">
+                <ul class="my-0">
+                    @foreach($errors->all as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+
         @yield('content')
     </main>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"

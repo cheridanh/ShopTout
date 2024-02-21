@@ -21,14 +21,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('admin', function () {
-    return view('admin.index');
-});
-
+// interfaces form administration !!!
 Route::name('admin.')->prefix('admin')->group(function () {
    Route::resource('/', AdminController::class);
    Route::resource('home', AdminController::class);
-   Route::resource('articles', ArticleController::class);
-   Route::resource('sizes', SizeController::class);
-   Route::resource('colors', ColorController::class);
+   Route::resource('articles', ArticleController::class)->except(['show']);
+   Route::resource('sizes', SizeController::class)->except(['show']);
+   Route::resource('colors', ColorController::class)->except(['show']);
 });
