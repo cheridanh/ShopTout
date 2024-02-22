@@ -4,7 +4,7 @@ namespace App\Http\Requests\Admin;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class ArticleRequest extends FormRequest
+class ColorRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,13 +22,7 @@ class ArticleRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required|min:10',
-            'price' => 'required|integer|min:4',
-            'stock' => 'required|integer|min:1',
-            'description' => 'required',
-            'sold' => 'required|boolean',
-            'sizes' => ['array', 'exists:sizes,id', 'required'],
-            'colors' => ['array', 'exists:colors,id', 'required'],
+            'name' => 'required',
         ];
     }
 }

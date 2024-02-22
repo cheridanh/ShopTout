@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\ColorRequest;
+use App\Models\Admin\Color;
 use Illuminate\Http\Request;
 
 class ColorController extends Controller
@@ -12,7 +14,9 @@ class ColorController extends Controller
      */
     public function index()
     {
-        return view('admin.colors.index');
+        return view('admin.colors.index', [
+            'colors' => Color::all()
+        ]);
     }
 
     /**
@@ -20,46 +24,55 @@ class ColorController extends Controller
      */
     public function create()
     {
-        //
+        $color = new Color();
+
+        return view('admin.colors.form', [
+           'color' => $color
+        ]);
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(ColorRequest $request)
     {
-        //
+        $color = Color::create($request->validated());
+        return to_route('admin.colors.index')->with('success', 'La couleur a été créée avec succès');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+/*    public function show(string $id)
     {
         //
-    }
+    }*/
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Color $color)
     {
-        //
+        return view('admin.colors.form', [
+            'color' => $color
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(ColorRequest $request, Color $color)
     {
-        //
+        $color->update($request->validated());
+        return to_route('admin.colors.index')->with('success', 'La couleur a été modifiée avec succès');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Color $color)
     {
-        //
+        $color->delete();
+        return to_route('admin.colors.index')->with('danger', 'La couleur a été supprimée avec suucès');
     }
 }

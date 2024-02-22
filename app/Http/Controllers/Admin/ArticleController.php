@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\ArticleRequest;
 use App\Models\Admin\Article;
+use App\Models\Admin\Color;
 use App\Models\Admin\Size;
 use Illuminate\Http\Request;
 
@@ -30,6 +31,7 @@ class ArticleController extends Controller
         return view('admin.articles.form', [
             'article' => $article,
             'sizes' => Size::pluck('name', 'id'),
+            'colors' => Color::pluck('name', 'id'),
         ]);
     }
 
@@ -40,6 +42,7 @@ class ArticleController extends Controller
     {
         $article = Article::create($request->validated());
         $article->sizes()->sync($request->validated('sizes'));
+        $article->colors()->sync($request->validated('colors'));
         return to_route('admin.articles.index')->with('success', "L'article a été créé avec success");
     }
 
@@ -59,6 +62,7 @@ class ArticleController extends Controller
         return view('admin.articles.form', [
             'article' => $article,
             'sizes' => Size::pluck('name', 'id'),
+            'colors' => Color::pluck('name', 'id'),
         ]);
     }
 
@@ -69,6 +73,7 @@ class ArticleController extends Controller
     {
         $article->update($request->validated());
         $article->sizes()->sync($request->validated('sizes'));
+        $article->colors()->sync($request->validated('colors'));
         return to_route('admin.articles.index')->with('success', "L'article a été modifié avec succès");
     }
 

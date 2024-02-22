@@ -10,37 +10,40 @@
                 aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        @php
-            $route = request()->route()->getName()
-        @endphp
-        <div class="collapse navbar-collapse text-center" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a @class(['nav-link', 'active text-bg-primary btn btn-primary' => str_contains($route, 'articles.')]) aria-current="page"
-                       href="{{ route('admin.articles.index') }}">
-                        @include('partials.icon', ['class' => 'bi-columns-gap'])
-                        <br>
-                        Gestion des articles
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a @class(['nav-link', 'active text-bg-primary btn btn-primary' => str_contains($route, 'sizes.')])
-                       href="{{ route('admin.sizes.index') }}">
-                        @include('partials.icon', ['class' => 'bi-sort-down-alt'])
-                        <br>
-                        Gestion des tailles
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a @class(['nav-link', 'active text-bg-primary btn btn-primary' => str_contains($route, 'colors.')])
-                       href="{{ route('admin.colors.index') }}">
-                        @include('partials.icon', ['class' => 'bi-droplet-half'])
-                        <br>
-                        Gestion des couleurs
-                    </a>
-                </li>
-            </ul>
-        </div>
+
+        @if(! Route::is('admin.index', 'admin.home.index'))
+            @php
+                $route = request()->route()->getName()
+            @endphp
+            <div class="collapse navbar-collapse text-center" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a @class(['nav-link', 'active text-bg-primary btn btn-primary' => str_contains($route, 'articles.')]) aria-current="page"
+                           href="{{ route('admin.articles.index') }}">
+                            @include('partials.icon', ['class' => 'bi-columns-gap'])
+                            <br>
+                            Gestion des articles
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a @class(['nav-link', 'active text-bg-primary btn btn-primary' => str_contains($route, 'sizes.')])
+                           href="{{ route('admin.sizes.index') }}">
+                            @include('partials.icon', ['class' => 'bi-sort-down-alt'])
+                            <br>
+                            Gestion des tailles
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a @class(['nav-link', 'active text-bg-primary btn btn-primary' => str_contains($route, 'colors.')])
+                           href="{{ route('admin.colors.index') }}">
+                            @include('partials.icon', ['class' => 'bi-droplet-half'])
+                            <br>
+                            Gestion des couleurs
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        @endif
 
         <a class="navbar-brand text-center" href="/">
             @include('partials.icon', ['class' => 'bi-house'])
