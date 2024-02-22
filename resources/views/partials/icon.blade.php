@@ -1,7 +1,6 @@
 @php
     $class ??= null;
-    $size ??= 1.5;
-    $style ??= 'font-size: ' . $size . 'rem;'
+    $style ??= 'font-size: 1.5rem;'
 @endphp
 
-<i class="bi {{ $class }}" style="{{ $style }}"></i>
+<i class="bi {{ $class }}" style=" {{ $style }}"></i>

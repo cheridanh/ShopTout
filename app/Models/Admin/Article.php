@@ -4,6 +4,7 @@ namespace App\Models\Admin;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Article extends Model
 {
@@ -16,4 +17,9 @@ class Article extends Model
         'description',
         'sold',
     ];
+
+    public function sizes(): BelongsToMany
+    {
+        return $this->belongsToMany(Size::class);
+    }
 }

@@ -23,15 +23,17 @@
                     @include('partials.input', ['class' => 'col' , 'label' => "Nom de l'article", 'name' => 'name', 'value' => $article->name])
 
                     <div class="col row">
-                        @include('partials.input', ['class' => 'col' , 'label' => 'Stock', 'name' => 'stock', 'value' => $article->stock])
                         @include('partials.input', ['class' => 'col' , 'label' => 'Prix', 'name' => 'price', 'value' => $article->price])
+                        @include('partials.input', ['class' => 'col' , 'label' => 'Stock', 'name' => 'stock', 'value' => $article->stock])
                     </div>
 
                 </div>
 
                 @include('partials.input', ['type' => 'textarea', 'label' => 'Description', 'name' => 'description', 'value' => $article->description])
 
-                @include('partials.checkbox', ['label' => 'Vendu', 'name' => 'sold', 'value' => $article->sold])
+                @include('partials.select', ['label' => 'Tailles', 'name' => 'sizes', 'value' => $article->sizes()->pluck('id'), 'multiple' => true])
+
+                @include('partials.checkbox', ['label' => 'Vendu', 'name' => 'sold', 'value' => $article->sold, 'sizes' => $sizes])
 
                 <div>
                     @if($article->exists)
