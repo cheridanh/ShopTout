@@ -19,7 +19,8 @@
                 <th>Nom</th>
                 <th>Stock</th>
                 <th>Prix</th>
-                <th class="text-end">Action</th>
+                <th>Tailles</th>
+                <th class="text-end text-align-left">Action</th>
             </tr>
             </thead>
 
@@ -29,6 +30,7 @@
                     <td>{{ $article->name }}</td>
                     <td>{{ $article->stock }}</td>
                     <td>{{ number_format($article->price, thousands_separator: ' ') }} FCFA</td>
+                    <td>{{ $article->sizes->count() }} :</td>
                     <td>
                         <div class="d-flex gap-2 w-100 justify-content-end">
                             <a href="{{ route('admin.articles.edit', $article) }}" class="btn btn-outline-primary me-2 rounded-pill">
