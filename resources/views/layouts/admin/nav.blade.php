@@ -45,7 +45,7 @@
             </div>
         @endif
 
-        <a class="navbar-brand text-center" href="/">
+        <a class="navbar-brand text-center" href="{{ route('home') }}">
             @include('partials.icon', ['class' => 'bi-house'])
             <br>
             {{ config('app.name') }}
