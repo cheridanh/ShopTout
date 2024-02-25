@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\ArticleController;
 use App\Http\Controllers\Admin\ColorController;
 use App\Http\Controllers\Admin\SizeController;
+use App\Http\Controllers\App\ArticleAppController;
 use App\Http\Controllers\App\HomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -19,6 +20,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/articles', [ArticleAppController::class, 'index'])->name('articles.index');
+Route::get('/articles/{slug}-{article}', [ArticleAppController::class, 'show'])->name('articles.show')->where([
+    'article' => '[0-9]+',
+    'slug' => '[0-9a-zA-Z\-]+',
+]);
 
 // interfaces form administration !!!
 Route::name('admin.')->prefix('admin')->group(function () {
