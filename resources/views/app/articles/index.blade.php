@@ -5,6 +5,9 @@
 @section('content')
 
     <div class="container pt-3">
+
+        @include('partials.search')
+
         <div class="row">
             @foreach($articles as $article)
                 <div class="col-3 mb-4">

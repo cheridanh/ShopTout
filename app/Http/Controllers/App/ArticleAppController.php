@@ -15,7 +15,6 @@ class ArticleAppController extends Controller
     }
 
     public function show(string $slug, Article $article) {
-
         $expectedSlug = $article->getSlug();
 
         if ($slug !== $expectedSlug) {

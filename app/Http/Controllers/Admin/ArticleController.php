@@ -17,7 +17,6 @@ class ArticleController extends Controller
     {
         return view('admin.articles.index', [
             'articles' => Article::orderBY('created_at', 'desc')->paginate(10),
-            'sizes' => Size::all(),
         ]);
     }
 

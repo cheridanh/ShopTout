@@ -6,7 +6,7 @@
 
     <div class="container py-5">
         <div class="d-flex justify-content-between align-items-center">
-            <h1>@yield('title')</h1>
+            <h1>@yield('title') : {{ $articles->count() }}</h1>
             <a href="{{ route('admin.articles.create') }}" class="btn btn-outline-success me-2 rounded-pill">
                 @include('partials.icon', ['class' => 'bi-plus-circle'])
             </a>
@@ -30,7 +30,7 @@
                 <tr>
                     <td>{{ $article->name }}</td>
                     <td>{{ $article->stock }}</td>
-                    <td>{{ number_format($article->price, thousands_separator: ' ') }} FCFA</td>
+                    <td>{{ number_format($article->price, thousands_separator: ' ') }} XAF</td>
                     <td>
                         <ul class="list-group">
                             @foreach($article->sizes as $size)

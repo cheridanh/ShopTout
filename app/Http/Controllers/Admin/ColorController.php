@@ -15,7 +15,7 @@ class ColorController extends Controller
     public function index()
     {
         return view('admin.colors.index', [
-            'colors' => Color::all()
+            'colors' => Color::orderBy('name', 'asc')->get()
         ]);
     }
 

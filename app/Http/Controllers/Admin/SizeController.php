@@ -16,7 +16,7 @@ class SizeController extends Controller
     public function index()
     {
         return view('admin.sizes.index', [
-            'sizes' => Size::all()
+            'sizes' => Size::orderBY('name', 'asc')->get()
         ]);
     }
 
