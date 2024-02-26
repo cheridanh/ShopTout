@@ -26,6 +26,10 @@ Route::get('/articles/{slug}-{article}', [ArticleAppController::class, 'show'])-
     'slug' => '[0-9a-zA-Z\-]+',
 ]);
 
+Route::post('/articles/{article}/command', [ArticleAppController::class, 'command'])->name('articles.command')->where([
+    'article' => '[0-9]+',
+]);;
+
 // interfaces form administration !!!
 Route::name('admin.')->prefix('admin')->group(function () {
    Route::resource('/', AdminController::class);

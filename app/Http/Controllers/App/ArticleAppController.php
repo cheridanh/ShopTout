@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\App;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\App\ArticleCommandRequest;
 use App\Models\Admin\Article;
 
 class ArticleAppController extends Controller
@@ -24,5 +25,9 @@ class ArticleAppController extends Controller
         return view('app.articles.show', [
             'article' => $article
         ]);
+    }
+
+    public function command(Article $article, ArticleCommandRequest $request) {
+        return back()->with('success', 'Votre commande a bien été prise en compte');
     }
 }

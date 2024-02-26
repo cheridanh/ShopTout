@@ -17,15 +17,7 @@
 
         @include('layouts.admin.nav')
 
-        @if(session('success'))
-            <div class="mt-3 container alert alert-success">
-                {{ session('success') }}
-            </div>
-        @elseif(session('danger'))
-            <div class="mt-3 container alert alert-danger">
-                {{ session('danger') }}
-            </div>
-        @endif
+        @include('partials.flash')
 
         @if($errors->any())
             <div class="alert-danger">

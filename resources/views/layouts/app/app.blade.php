@@ -15,16 +15,6 @@
 
         @include('layouts.app.nav')
 
-        @if(session('success'))
-            <div class="mt-3 container alert alert-success">
-                {{ session('success') }}
-            </div>
-        @elseif(session('danger'))
-            <div class="mt-3 container alert alert-danger">
-                {{ session('danger') }}
-            </div>
-        @endif
-
         @if($errors->any())
             <div class="alert-danger">
                 <ul class="my-0">

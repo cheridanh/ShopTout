@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\App;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\SearchArticlesRequest;
+use App\Http\Requests\App\SearchArticlesRequest;
 use App\Models\Admin\Article;
 
 class HomeController extends Controller

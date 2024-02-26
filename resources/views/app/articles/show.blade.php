@@ -9,7 +9,8 @@
         <h2>{{ number_format($article->price, thousands_separator: ' ') }} XAF</h2>
         <hr>
         <div class="mt-4">
-            <form action="" method="POST" class="vstack gap-3">
+            @include('partials.flash')
+            <form action="{{ route('articles.command', $article) }}" method="POST" class="vstack gap-3">
                 @csrf
                 <div class="row">
                     @include('partials.input', ['class' => 'col-3' , 'label' => 'Prénom', 'name' => 'firstname'])
