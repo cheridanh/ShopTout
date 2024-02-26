@@ -4,26 +4,19 @@
 
 @section('content')
 
-    <div class="container p-3">
-        <section class="text-center mb-3">
-            <div class="row">
-                <div class="col-lg-6 col-md-8 mx-auto">
-                    <h1 class="fw-light">{{ config('app.name') }}</h1>
-                    <p class="pt-3 lead text-body-secondary">
-                        Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet,
-                        but not too short so folks don’t simply skip over it entirely.
-                    </p>
-                </div>
-            </div>
-        </section>
+    <div class="container pt-3">
+
+        <div class="mb-3 text-center">
+            <form action="" method="GET" class="container d-flex gap-2">
+                <input class="form-control w-auto" type="text" name="name" value="{{ $input['name'] ?? '' }}" placeholder="Article clé">
+                <input class="form-control w-auto" type="number" name="price" value="{{ $input['price'] ?? '' }}" placeholder="Budget max">
+                <button class="btn btn-primary btn-sm flex-grow-0">
+                    @include('partials.icon', ['class' => 'bi-search'])
+                </button>
+            </form>
+        </div>
 
         <section class="">
-            <div class="row text-center">
-                <div class="col-lg-6 col-md-8 mx-auto">
-                    <h2 class="fw-light mb-5">Nos articles</h2>
-                </div>
-            </div>
-
             <div class="row row-cols-1 row-cols-md-4 g-4">
                 @foreach($articles as $article)
                     <div class="col">
@@ -31,8 +24,8 @@
                     </div>
                 @endforeach
             </div>
-
         </section>
+
     </div>
 
 @endsection

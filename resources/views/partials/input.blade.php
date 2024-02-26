@@ -5,7 +5,7 @@
     $class ??= null;
     $name ??= '';
     $value ??= '';
-    $placeholder ??= '';
+    $placeholder ??= null;
 
 @endphp
 

@@ -7,7 +7,6 @@ use App\Http\Requests\Admin\ArticleRequest;
 use App\Models\Admin\Article;
 use App\Models\Admin\Color;
 use App\Models\Admin\Size;
-use Illuminate\Http\Request;
 
 class ArticleController extends Controller
 {

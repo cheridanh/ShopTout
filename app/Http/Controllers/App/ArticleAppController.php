@@ -16,5 +16,14 @@ class ArticleAppController extends Controller
 
     public function show(string $slug, Article $article) {
 
+        $expectedSlug = $article->getSlug();
+
+        if ($slug !== $expectedSlug) {
+            return to_route('articles.show', [$slug => $expectedSlug, 'article' => $article]);
+        }
+
+        return view('app.articles.show', [
+            'article' => $article
+        ]);
     }
 }

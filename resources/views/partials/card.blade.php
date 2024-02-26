@@ -2,11 +2,13 @@
     <img src="/AF1.webp" class="card-img-top" alt="">
     <div class="card-body">
         <h5 class="card-title">
-            <a href="{{ route('articles.show', ['slug' => $article->getSlug(), 'article' => $article]) }}">
+            {{ number_format($article->price, thousands_separator: ' ') }} XAF
+        </h5>
+        <p class="card-text lead">
+            <a class="link-underline-light link-dark" href="{{ route('articles.show', ['slug' => $article->getSlug(), 'article' => $article]) }}">
                 {{ $article->name }}
             </a>
-        </h5>
-        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+        </p>
     </div>
     <div class="card-footer">
         <small class="text-body-secondary">
