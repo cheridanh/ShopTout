@@ -10,7 +10,7 @@
 
         <div class="row">
             @foreach($articles as $article)
-                <div class="col-3 mb-4">
+                <div class="col-6 col-md-2 mb-4">
                     @include('partials.card')
                 </div>
             @endforeach
