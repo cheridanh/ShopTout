@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\ArticleController;
-use App\Http\Controllers\Admin\AuthenticationController;
+use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\ColorController;
 use App\Http\Controllers\Admin\SizeController;
 use App\Http\Controllers\App\ArticleAppController;
@@ -34,12 +34,12 @@ Route::post('/articles/{article}/command', [ArticleAppController::class, 'comman
 ]);;
 
 // Authentication to administration
-Route::get('/login', [AuthenticationController::class, 'login'])->name('login');
-Route::post('/login', [AuthenticationController::class, 'doLogin']);
-Route::delete('/logout', [AuthenticationController::class, 'logout'])->name('logout');
+Route::get('/login', [AuthController::class, 'login'])->name('login');
+Route::post('/login', [AuthController::class, 'doLogin'])->name('doLogin');
+Route::delete('/logout', [AuthController::class, 'logout'])->name('logout');
 
 // interfaces for administration !!!
-Route::name('admin.')->middleware('authentication')->prefix('admin')->group(function () {
+Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
    Route::resource('/', AdminController::class);
    Route::resource('home', AdminController::class);
    Route::resource('articles', ArticleController::class)->except(['show']);

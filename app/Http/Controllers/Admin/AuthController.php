@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\LoginRequest;
 use Illuminate\Support\Facades\Auth;
 
-class AuthenticationController extends Controller
+class AuthController extends Controller
 {
     public function login()
     {
@@ -28,6 +28,6 @@ class AuthenticationController extends Controller
     public function logout()
     {
         Auth::logout();
-        return to_route('login')->with('Vous êtes déconnecté');
+        return to_route('login')->with('success', 'Vous êtes déconnecté');
     }
 }
