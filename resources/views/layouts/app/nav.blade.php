@@ -16,14 +16,6 @@
         @endphp
         <div class="collapse navbar-collapse text-center" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a @class(['nav-link', 'active text-bg-primary btn btn-primary' => str_contains($route, 'articles.')]) aria-current="page"
-                       href="{{ route('articles.index') }}">
-                        @include('partials.icon', ['class' => 'bi-columns-gap'])
-                        <br>
-                        Tous nos articles
-                    </a>
-                </li>
                 <li class="nav-item dropdown">
                     <a @class(['nav-link dropdown-toggle', 'active text-bg-primary btn btn-primary' => str_contains($route, 'sizes.')])
                        role="button" data-bs-toggle="dropdown" aria-expanded="false" href="{{ route('admin.sizes.index') }}">
@@ -38,13 +30,21 @@
                         <li><a class="dropdown-item" href="#">Accessoires et autres</a></li>
                     </ul>
                 </li>
+                <li class="nav-item">
+                    <a @class(['nav-link', 'active text-bg-primary btn btn-primary' => str_contains($route, 'carts.')]) aria-current="page"
+                       href="#">
+                        @include('partials.icon', ['class' => 'bi-cart3'])
+                        <br>
+                        Panier
+                    </a>
+                </li>
 
             </ul>
         </div>
         <a class="navbar-brand text-center" href="{{ route('admin.home.index') }}">
-            @include('partials.icon', ['class' => 'bi-cart3'])
+            @include('partials.icon', ['class' => 'bi-sliders'])
             <br>
-            Panier
+            Administration
         </a>
     </div>
 </nav>

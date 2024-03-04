@@ -23,7 +23,7 @@ class ArticleAppController extends Controller
         }
 
         return view('app.articles.show', [
-            'article' => $article
+            'article' => $article,
         ]);
     }
 

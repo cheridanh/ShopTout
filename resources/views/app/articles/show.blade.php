@@ -20,6 +20,10 @@
                     @include('partials.input', ['class' => 'col-3' , 'label' => 'Téléphone', 'name' => 'phone'])
                     @include('partials.input', ['class' => 'col-3' , 'label' => 'Quartier', 'name' => 'quarter'])
                 </div>
+                <div class="row">
+                    @include('partials.select-choice-size', ['class' => 'col-3' , 'label' => 'Tailles', 'name' => 'size '])
+                    @include('partials.select-choice-color', ['class' => 'col-3' , 'label' => 'Couleurs', 'name' => 'color'])
+                </div>
                 <div>
                     <button class="btn btn-success">
                         Commander
@@ -31,6 +35,7 @@
         <div class="mt-4">
             <h2>Description</h2>
             <p>{{ nl2br($article->description) }}</p>
+            {{--
             <div class="row">
                 <div class="col-4">
                     <h2>Tailles disponibles</h2>
@@ -53,6 +58,7 @@
                     </ul>
                 </div>
             </div>
+            --}}
         </div>
     </div>
 
