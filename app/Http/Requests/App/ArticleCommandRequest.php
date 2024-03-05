@@ -26,6 +26,8 @@ class ArticleCommandRequest extends FormRequest
             'lastname' => 'required|string|min:2',
             'phone' => 'required|string|min:9|max:9',
             'quarter' => 'required|string|min:5',
+            'size' => ['exists:sizes,id', 'required'],
+            'color' => ['exists:colors,id', 'required'],
         ];
     }
 }
