@@ -4,7 +4,9 @@ namespace App\Http\Controllers\App;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\App\ArticleCommandRequest;
+use App\Mail\ArticleCommandMail;
 use App\Models\Admin\Article;
+use Illuminate\Support\Facades\Mail;
 
 class ArticleAppController extends Controller
 {
@@ -28,6 +30,8 @@ class ArticleAppController extends Controller
     }
 
     public function command(Article $article, ArticleCommandRequest $request) {
+
+        Mail::send(new ArticleCommandMail($article, $request->validated()));
         return back()->with('success', 'Votre commande a bien été prise en compte');
     }
 }

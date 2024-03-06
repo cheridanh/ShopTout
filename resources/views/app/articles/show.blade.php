@@ -13,17 +13,19 @@
             <form action="{{ route('articles.command', $article) }}" method="POST" class="vstack gap-3">
                 @csrf
                 <div class="row">
-                    @include('partials.input', ['class' => 'col-3' , 'label' => 'Prénom', 'name' => 'firstname'])
-                    @include('partials.input', ['class' => 'col-3' , 'label' => 'Nom', 'name' => 'lastname'])
+                    @include('partials.input', ['class' => 'col-3' , 'label' => 'Prénom', 'name' => 'firstname', 'value' => 'Chéridanh'])
+                    @include('partials.input', ['class' => 'col-3' , 'label' => 'Nom', 'name' => 'lastname', 'value' => 'TSIELA'])
                 </div>
                 <div class="row">
-                    @include('partials.input', ['class' => 'col-3' , 'label' => 'Téléphone', 'name' => 'phone'])
-                    @include('partials.input', ['class' => 'col-3' , 'label' => 'Quartier', 'name' => 'quarter'])
+                    @include('partials.input', ['class' => 'col-3' , 'label' => 'Téléphone', 'name' => 'phone', 'value' => '064143445'])
+                    @include('partials.input', ['class' => 'col-3' , 'label' => 'Quartier', 'name' => 'quarter', 'value' => 'Bacongo'])
                 </div>
+                {{--
                 <div class="row">
-                    @include('partials.select-choice-size', ['class' => 'col-3' , 'label' => 'Tailles', 'name' => 'size '])
-                    @include('partials.select-choice-color', ['class' => 'col-3' , 'label' => 'Couleurs', 'name' => 'color'])
+                    @include('partials.select-choice-size', ['class' => 'col-3' , 'label' => 'Tailles', 'name' => 'size-choice'])
+                    @include('partials.select-choice-color', ['class' => 'col-3' , 'label' => 'Couleurs', 'name' => 'color-choice'])
                 </div>
+                --}}
                 <div>
                     <button class="btn btn-success">
                         Commander
