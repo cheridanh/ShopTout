@@ -12,7 +12,7 @@
             @include('partials.input', ['type' => 'email', 'name' => 'email', 'label' => 'Email', 'class' => 'col'])
             @include('partials.input', ['type' => 'password', 'name' => 'password', 'label' => 'Mot de passe', 'class' => 'col'])
             <div>
-                <div class="btn btn-primary">Se connecter</div>
+                <button class="btn btn-primary">Se connecter</button>
             </div>
         </form>
     </div>
