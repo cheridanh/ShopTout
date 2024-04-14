@@ -29,6 +29,8 @@ class ArticleRequest extends FormRequest
             'sold' => 'required|boolean',
             'sizes' => ['array', 'exists:sizes,id', 'required'],
             'colors' => ['array', 'exists:colors,id', 'required'],
+            'pictures' => ['array'],
+            'pictures.*' => ['image', 'max:2000'],
         ];
     }
 }

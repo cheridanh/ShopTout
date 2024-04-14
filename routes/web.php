@@ -39,7 +39,8 @@ Route::post('/login', [AuthController::class, 'doLogin'])->name('doLogin');
 Route::delete('/logout', [AuthController::class, 'logout'])->name('logout');
 
 // interfaces for administration !!!
-Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
+// Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
+Route::prefix('admin')->name('admin.')->group(function () {
    Route::resource('/', AdminController::class);
    Route::resource('home', AdminController::class);
    Route::resource('articles', ArticleController::class)->except(['show']);
