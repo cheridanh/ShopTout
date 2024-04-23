@@ -30,7 +30,6 @@
                         @include('partials.input', ['type' => 'textarea', 'label' => 'Description', 'name' => 'description', 'value' => $article->description])
                         <div class="row">
                             @include('partials.select-color', ['label' => 'Couleurs', 'name' => 'colors', 'value' => $article->colors()->pluck('id'), 'multiple' => true, 'colors' => $colors])
-
                             @include('partials.select-size', ['class' => 'form-select form-select-lg mb-3', 'label' => 'Tailles', 'name' => 'sizes', 'value' => $article->sizes()->pluck('id'), 'multiple' => true, 'sizes' => $sizes,])
                         </div>
                         @include('partials.checkbox', ['label' => 'Vendu', 'name' => 'sold', 'value' => $article->sold])
