@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\ArticleController;
 use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\ColorController;
+use App\Http\Controllers\Admin\PictureController;
 use App\Http\Controllers\Admin\SizeController;
 use App\Http\Controllers\App\ArticleAppController;
 use App\Http\Controllers\App\HomeController;
@@ -46,4 +47,5 @@ Route::prefix('admin')->name('admin.')->group(function () {
    Route::resource('articles', ArticleController::class)->except(['show']);
    Route::resource('sizes', SizeController::class)->except(['show']);
    Route::resource('colors', ColorController::class)->except(['show']);
+   Route::delete('/picture/{picture}', [PictureController::class, 'destroy'])->name('picture.destroy')->where('picture', '[0-9]+');
 });

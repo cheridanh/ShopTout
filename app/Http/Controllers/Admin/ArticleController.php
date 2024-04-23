@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\ArticleRequest;
 use App\Models\Admin\Article;
 use App\Models\Admin\Color;
+use App\Models\Admin\Picture;
 use App\Models\Admin\Size;
 
 class ArticleController extends Controller
@@ -43,7 +44,6 @@ class ArticleController extends Controller
         $article->sizes()->sync($request->validated('sizes'));
         $article->colors()->sync($request->validated('colors'));
         $article->attachFiles($request->validated('pictures'));
-        dd($request->validated('pictures'));
         return to_route('admin.articles.index')->with('success', "L'article a été créé avec success");
     }
 
@@ -75,7 +75,7 @@ class ArticleController extends Controller
         $article->update($request->validated());
         $article->sizes()->sync($request->validated('sizes'));
         $article->colors()->sync($request->validated('colors'));
-        $article->attachFiles($request->file('pictures'));
+        $article->attachFiles($request->validated('pictures'));
         return to_route('admin.articles.index')->with('success', "L'article a été modifié avec succès");
     }
 
@@ -84,6 +84,7 @@ class ArticleController extends Controller
      */
     public function destroy(Article $article)
     {
+        Picture::destroy($article->pictures()->pluck('id'));
         $article->delete();
         return to_route('admin.articles.index')->with('danger', "L'article a été supprimé avec succès");
     }

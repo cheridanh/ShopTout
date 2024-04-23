@@ -2,7 +2,6 @@
 
 namespace App\Models\Admin;
 
-use App\Models\Picture;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
@@ -48,7 +47,11 @@ class Article extends Model
             ];
         }
         if (count($pictures) > 0) {
-            $this->pictures()->saveMany($pictures);
+            $this->pictures()->createMany($pictures);
         }
+    }
+    public function getPicture() : ?Picture
+    {
+        return $this->pictures[0] ?? null;
     }
 }

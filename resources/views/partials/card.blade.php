@@ -1,5 +1,9 @@
 <div class="card h-100">
-    <img src="/AF1.webp" class="card-img-top" alt="">
+    @if($article->getPicture())
+        <img src="{{ $article->getPicture()->getImageUrl() }}" alt="" class="w-100">
+    @else
+        <img src="/AF1.webp" class="card-img-top" alt="">
+    @endif
     <div class="card-body">
         <h5 class="card-title">
             {{ number_format($article->price, thousands_separator: ' ') }} XAF
