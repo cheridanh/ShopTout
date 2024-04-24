@@ -10,7 +10,6 @@
                 aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-
         @php
             $route = request()->route()->getName()
         @endphp
@@ -38,7 +37,6 @@
                         Panier
                     </a>
                 </li>
-
             </ul>
         </div>
         <a class="navbar-brand text-center" href="{{ route('admin.home.index') }}">

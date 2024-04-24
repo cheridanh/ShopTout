@@ -11,7 +11,6 @@
                     aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-
             @if(! Route::is('admin.index', 'admin.home.index'))
                 @php
                     $route = request()->route()->getName()
@@ -45,7 +44,6 @@
                     </ul>
                 </div>
             @endif
-
             <a class="navbar-brand text-center" href="{{ route('home') }}">
                 @include('partials.icon', ['class' => 'bi-house'])
                 <br>
