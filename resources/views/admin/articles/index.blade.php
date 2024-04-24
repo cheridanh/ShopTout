@@ -16,6 +16,7 @@
 
             <thead>
             <tr>
+                <th>Cover</th>
                 <th>Nom</th>
                 <th>Stock</th>
                 <th>Prix</th>
@@ -28,6 +29,7 @@
             <tbody>
             @foreach($articles as $article)
                 <tr>
+                    <td><img src="{{ $article->getPicture()->getImageUrl() }}" alt="" style="width: 300px"></td>
                     <td>{{ $article->name }}</td>
                     <td>{{ $article->stock }}</td>
                     <td>{{ number_format($article->price, thousands_separator: ' ') }} XAF</td>
