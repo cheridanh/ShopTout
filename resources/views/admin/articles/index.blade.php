@@ -7,7 +7,7 @@
     <div class="container py-5">
         <div class="d-flex justify-content-between align-items-center">
             <h1>@yield('title') : {{ $articles->count() }}</h1>
-            <a href="{{ route('admin.articles.create') }}" class="btn btn-outline-success me-2 rounded-pill">
+            <a href="{{ route('admin.articles.create') }}" class="btn btn-outline-success me-2">
                 @include('partials.icon', ['class' => 'bi-plus-circle'])
             </a>
         </div>
@@ -29,7 +29,7 @@
             <tbody>
             @foreach($articles as $article)
                 <tr>
-                    <td><img src="{{ $article->getPicture()->getImageUrl() }}" alt="" style="width: 300px"></td>
+                    <td><img src="{{ $article->getPicture()->getImageUrl(200, 100) }}" alt=""></td>
                     <td>{{ $article->name }}</td>
                     <td>{{ $article->stock }}</td>
                     <td>{{ number_format($article->price, thousands_separator: ' ') }} XAF</td>
@@ -53,13 +53,13 @@
                     </td>
                     <td>
                         <div class="d-flex gap-2 w-100 justify-content-end">
-                            <a href="{{ route('admin.articles.edit', $article) }}" class="btn btn-outline-primary me-2 rounded-pill">
+                            <a href="{{ route('admin.articles.edit', $article) }}" class="btn btn-outline-primary me-2">
                                 @include('partials.icon', ['class' => 'bi-pencil-square'])
                             </a>
                             <form action="{{ route('admin.articles.destroy', $article) }}" method="post">
                                 @csrf
                                 @method("delete")
-                                <button class="btn btn-outline-danger me-2 rounded-pill">
+                                <button class="btn btn-outline-danger me-2">
                                     @include('partials.icon', ['class' => 'bi-trash3'])
                                 </button>
                             </form>

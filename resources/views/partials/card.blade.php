@@ -1,6 +1,6 @@
 <div class="card h-100">
     @if($article->getPicture())
-        <img src="{{ $article->getPicture()->getImageUrl() }}" alt="" class="w-100">
+        <img src="{{ $article->getPicture()->getImageUrl(360, 230) }}" alt="" class="w-100">
     @else
         <img src="/AF1.webp" class="card-img-top" alt="">
     @endif

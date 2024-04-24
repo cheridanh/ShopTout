@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Mail;
 class ArticleAppController extends Controller
 {
     public function index() {
-        $articles = Article::paginate(5);
+        $articles = Article::with('pictures')->paginate(5);
         return view('app.articles.index', [
            'articles' => $articles,
         ]);

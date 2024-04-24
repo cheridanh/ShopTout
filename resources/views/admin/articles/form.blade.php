@@ -6,8 +6,7 @@
 
     <div class="container w-75 my-5">
         <div class="position-relative p-5 bg-body border border-dashed rounded-5">
-            <a href="{{ route('admin.articles.index') }}" type="button"
-               class="position-absolute top-0 end-0 p-3 m-3 btn-close bg-secondary bg-opacity-10 rounded-pill"
+            <a href="{{ route('admin.articles.index') }}" type="button" class="position-absolute top-0 end-0 p-3 m-3 btn-close bg-secondary bg-opacity-10"
                aria-label="Close"></a>
 
             <h1>{{ $article->exists ? 'Modifier : ' . $article->name : 'Créer un article' }}</h1>
@@ -39,8 +38,7 @@
                         @foreach($article->pictures as $picture)
                             <div id="picture{{ $picture->id }}" class="position-relative">
                                 <img src="{{ $picture->getImageUrl() }}" alt="" class="w-100 d-block">
-                                <button type="button"
-                                        class="btn btn-danger position-absolute bottom-0 w-100 start-0"
+                                <button type="button" class="btn btn-danger position-absolute bottom-0 w-100 start-0"
                                         hx-delete="{{ route('admin.picture.destroy', $picture) }}"
                                         hx-target="#picture{{ $picture->id }}"
                                         hx-swap="delete">
@@ -55,11 +53,11 @@
 
                 <div>
                     @if($article->exists)
-                        <button class="btn btn-outline-primary me-2 rounded-pill">
+                        <button class="btn btn-outline-primary me-2">
                             @include('partials.icon', ['class' => 'bi-check2-circle'])
                         </button>
                     @else
-                        <button class="btn btn-outline-success me-2 rounded-pill">
+                        <button class="btn btn-outline-success me-2">
                             @include('partials.icon', ['class' => 'bi-plus-circle'])
                         </button>
                     @endif

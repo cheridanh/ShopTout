@@ -10,7 +10,6 @@ class PictureController extends Controller
 {
     public function destroy(Picture $picture)
     {
-
         $picture->delete();
         return '';
     }

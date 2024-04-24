@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\ArticleController;
 use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\ColorController;
+use App\Http\Controllers\Admin\ImageController;
 use App\Http\Controllers\Admin\PictureController;
 use App\Http\Controllers\Admin\SizeController;
 use App\Http\Controllers\App\ArticleAppController;
@@ -28,6 +29,7 @@ Route::get('/articles/{slug}-{article}', [ArticleAppController::class, 'show'])-
     'article' => '[0-9]+',
     'slug' => '[0-9a-zA-Z\-]+',
 ]);
+Route::get('/images/{path}', [ImageController::class, 'show'])->where('path', '.*');
 
 // Command users
 Route::post('/articles/{article}/command', [ArticleAppController::class, 'command'])->name('articles.command')->where([

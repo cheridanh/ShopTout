@@ -21,7 +21,7 @@
                     <div class="carousel-inner">
                         @foreach($article->pictures as $k => $picture)
                             <div class="carousel-item {{ $k == 0 ? 'active' : '' }}">
-                                <img src="{{ $picture->getImageUrl() }}" class="d-block w-100" alt="...">
+                                <img src="{{ $picture->getImageUrl(800, 530) }}" class="d-block w-100" alt="...">
                             </div>
                         @endforeach
                     </div>

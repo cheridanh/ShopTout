@@ -10,7 +10,7 @@ class HomeController extends Controller
 {
     public function index(SearchArticlesRequest $request) {
 
-        $query = Article::query();
+        $query = Article::query()->with('pictures');
 
         if ($request->validated('name')) {
             $query = $query->where('name', 'like', "%{$request->validated('name')}%");
