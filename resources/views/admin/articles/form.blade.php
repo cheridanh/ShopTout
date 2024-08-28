@@ -28,8 +28,10 @@
                         </div>
                         @include('partials.input', ['type' => 'textarea', 'label' => 'Description', 'name' => 'description', 'value' => $article->description])
                         <div class="row">
-                            @include('partials.select-color', ['label' => 'Couleurs', 'name' => 'colors', 'value' => $article->colors()->pluck('id'), 'multiple' => true, 'colors' => $colors])
-                            @include('partials.select-size', ['class' => 'form-select form-select-lg mb-3', 'label' => 'Tailles', 'name' => 'sizes', 'value' => $article->sizes()->pluck('id'), 'multiple' => true, 'sizes' => $sizes,])
+                            @include('partials.select-color', ['class' => 'col', 'label' => 'Couleurs', 'name' => 'colors', 'value' => $article->colors()->pluck('id'), 'multiple' => true, 'colors' => $colors])
+                            <div class="col row">
+                                @include('partials.select-size', ['class' => 'col', 'label' => 'Tailles', 'name' => 'sizes', 'value' => $article->sizes()->pluck('id'), 'multiple' => true, 'sizes' => $sizes,])
+                            </div>
                         </div>
                         @include('partials.checkbox', ['label' => 'Vendu', 'name' => 'sold', 'value' => $article->sold])
                     </div>
@@ -37,7 +39,7 @@
                     <div class="col vstack gap-3" style="flex: 25">
                         @foreach($article->pictures as $picture)
                             <div id="picture{{ $picture->id }}" class="position-relative">
-                                <img src="{{ $picture->getImageUrl() }}" alt="" class="w-100 d-block">
+                                <img src="{{ $picture->getImageUrl(800, 530) }}" alt="" class="w-100 d-block">
                                 <button type="button" class="btn btn-danger position-absolute bottom-0 w-100 start-0"
                                         hx-delete="{{ route('admin.picture.destroy', $picture) }}"
                                         hx-target="#picture{{ $picture->id }}"

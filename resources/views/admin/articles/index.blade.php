@@ -32,7 +32,7 @@
                     <td><img src="{{ $article->getPicture()->getImageUrl(200, 100) }}" alt=""></td>
                     <td>{{ $article->name }}</td>
                     <td>{{ $article->stock }}</td>
-                    <td>{{ number_format($article->price, thousands_separator: ' ') }} XAF</td>
+                    <td>{{ number_format($article->price, thousands_separator: ' ') }} €</td>
                     <td>
                         <ul class="list-group">
                             @foreach($article->sizes as $size)

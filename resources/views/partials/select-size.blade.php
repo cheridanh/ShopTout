@@ -7,11 +7,11 @@
 
 @endphp
 
-<div @class(["form-group"])>
+<div @class(["form-group", $class])>
 
     <label class="m-2 @error($name) is-invalid @enderror" for="{{ $name }}">{{ $label }}</label>
 
-   <select class="{{ $class }}" name="{{ $name }}[]" id="{{ $name }}" multiple>
+   <select class="select" name="{{ $name }}[]" id="{{ $name }}" multiple>
        @foreach($sizes as $k => $v)
            <option @selected($value->contains($k)) value="{{ $k }}">{{ $v }}</option>
        @endforeach

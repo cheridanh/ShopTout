@@ -28,6 +28,12 @@
         @yield('content')
     </main>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script>new TomSelect('select[multiple]', {plugins: {remove_button: {title: 'Supprimer'}}})</script>
+    <script>
+        document.querySelectorAll('.select').forEach((el)=>{
+            let settings = {plugins: {remove_button: {title: 'Supprimer'}}};
+            new TomSelect(el,settings);
+        });
+    </script>
+    {{-- <script>new TomSelect('select[multiple]', {plugins: {remove_button: {title: 'Supprimer'}}})</script> --}}
 </body>
 </html>

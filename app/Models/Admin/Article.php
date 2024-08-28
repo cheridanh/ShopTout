@@ -46,7 +46,7 @@ class Article extends Model
                 'filename' => $fileName,
             ];
         }
-        if (count($pictures) > 0) {
+        if (count($pictures) >= 0) {
             $this->pictures()->createMany($pictures);
         }
     }

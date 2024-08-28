@@ -7,7 +7,7 @@
     <div class="container p-5 w-75">
 
         <h1>{{ $article->name }}</h1>
-        <h2>{{ number_format($article->price, thousands_separator: ' ') }} XAF</h2>
+        <h2>{{ number_format($article->price, thousands_separator: ' ') }} €</h2>
         <hr>
 
         <div class="row">
@@ -27,15 +27,13 @@
                             @include('partials.input', ['class' => 'col-3' , 'label' => 'Téléphone', 'name' => 'phone', 'value' => '064143445'])
                             @include('partials.input', ['class' => 'col-3' , 'label' => 'Quartier', 'name' => 'quarter', 'value' => 'Bacongo'])
                         </div>
-                        {{--
                         <div class="row">
                             @include('partials.select-choice-size', ['class' => 'col-3' , 'label' => 'Tailles', 'name' => 'size-choice'])
                             @include('partials.select-choice-color', ['class' => 'col-3' , 'label' => 'Couleurs', 'name' => 'color-choice'])
                         </div>
-                        --}}
                         <div>
                             <button class="btn btn-success">
-                                Commander
+                                Ajouter au panier @include('partials.icon', ['class' => 'bi-cart-plus'])
                             </button>
                         </div>
                     </form>

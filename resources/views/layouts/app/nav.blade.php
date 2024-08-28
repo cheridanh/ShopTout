@@ -32,7 +32,7 @@
                 <li class="nav-item">
                     <a @class(['nav-link', 'active text-bg-primary btn btn-primary' => str_contains($route, 'carts.')]) aria-current="page"
                        href="#">
-                        @include('partials.icon', ['class' => 'bi-cart3'])
+                        @include('partials.icon', ['class' => 'bi-cart3'])<span class="badge rounded-pill text-bg-primary">0</span>
                         <br>
                         Panier
                     </a>

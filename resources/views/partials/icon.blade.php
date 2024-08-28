@@ -3,4 +3,4 @@
     $style ??= ''
 @endphp
 
-<i class="bi {{ $class }}" style="{{ $style }}"></i>
+<i class="bi {{ $class }}" style="font-size: 20px; {{ $style }}"></i>

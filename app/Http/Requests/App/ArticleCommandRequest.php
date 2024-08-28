@@ -28,4 +28,9 @@ class ArticleCommandRequest extends FormRequest
             'quarter' => 'required|string|min:5',
         ];
     }
+
+    public function filled()
+    {
+
+    }
 }
